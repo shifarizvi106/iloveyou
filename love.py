@@ -11,7 +11,7 @@ ANIM = 42
 LIFT = 34
 GAP = 7
 SIZES = (9, 10, 11, 12)
-FONT = "Akira Expanded"
+FONT = "Libre Baskerville"
 BG = "#fc81b2"
 
 s = t.Screen()
@@ -24,26 +24,26 @@ cv = s.getcanvas()
 rng = r.Random(11)
 
 PHRASES = [
-    "I love you, Farhan",              # English
-    "Seni seviyorum, Farhan",          # Turkish
-    "Te amo, Farhan",                  # Spanish
-    "Je t'aime, Farhan",               # French
-    "Ich liebe dich, Farhan",          # German
-    "Ti amo, Farhan",                  # Italian
-    "Eu te amo, Farhan",               # Portuguese
-    "Я тебя люблю, Фархан",            # Russian
-    "사랑해, 파르한",                    # Korean
-    "愛してる、ファルハン",               # Japanese
-    "我爱你，法尔汉",                    # Chinese (Simplified)
-    "मैं तुमसे प्यार करती हूँ, फरहान",   # Hindi (female speaker)
-    "Σ' αγαπώ, Φαρχάν",                # Greek
-    "Ik hou van jou, Farhan",          # Dutch
-    "Jag älskar dig, Farhan",          # Swedish
-    "Kocham cię, Farhanie",            # Polish (vocative)
-    "ฉันรักเธอ, ฟาร์ฮาน",                # Thai
-    "Em yêu anh, Farhan",              # Vietnamese (female speaker)
-    "Aku cinta kamu, Farhan",          # Indonesian
-    "Я тебе кохаю, Фархане",           # Ukrainian (vocative)
+    "I love you, Farhan",             
+    "Seni seviyorum, Farhan",         
+    "Te amo, Farhan",                  
+    "Je t'aime, Farhan",              
+    "Ich liebe dich, Farhan",          
+    "Ti amo, Farhan",               
+    "Eu te amo, Farhan",               
+    "Я тебя люблю, Фархан",            
+    "사랑해, 파르한",                    
+    "愛してる、ファルハン",               
+    "我爱你，法尔汉",                    
+    "मैं तुमसे प्यार करती हूँ, फरहान",  
+    "Σ' αγαπώ, Φαρχάν",                
+    "Ik hou van jou, Farhan",          
+    "Jag älskar dig, Farhan",         
+    "Kocham cię, Farhanie",           
+    "ฉันรักเธอ, ฟาร์ฮาน",                
+    "Em yêu anh, Farhan",              
+    "Aku cinta kamu, Farhan",          
+    "Я тебе кохаю, Фархане",           
 ]
 
 _fonts = {}
