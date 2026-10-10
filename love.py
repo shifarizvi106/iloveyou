@@ -24,11 +24,26 @@ cv = s.getcanvas()
 rng = r.Random(11)
 
 PHRASES = [
-    "I love you", "Seni seviyorum", "Te amo", "Je t'aime",
-    "Ich liebe dich", "Ti amo", "Eu te amo", "Я тебя люблю",
-    "사랑해", "愛してる", "我爱你", "मैं तुमसे प्यार करता हूँ",
-    "Σ' αγαπώ", "Ik hou van jou", "Jag älskar dig", "Kocham cię",
-    "ฉันรักเธอ", "Anh yêu em", "Aku cinta kamu", "Я тебе кохаю",
+    "I love you, Farhan",              # English
+    "Seni seviyorum, Farhan",          # Turkish
+    "Te amo, Farhan",                  # Spanish
+    "Je t'aime, Farhan",               # French
+    "Ich liebe dich, Farhan",          # German
+    "Ti amo, Farhan",                  # Italian
+    "Eu te amo, Farhan",               # Portuguese
+    "Я тебя люблю, Фархан",            # Russian
+    "사랑해, 파르한",                    # Korean
+    "愛してる、ファルハン",               # Japanese
+    "我爱你，法尔汉",                    # Chinese (Simplified)
+    "मैं तुमसे प्यार करती हूँ, फरहान",   # Hindi (female speaker)
+    "Σ' αγαπώ, Φαρχάν",                # Greek
+    "Ik hou van jou, Farhan",          # Dutch
+    "Jag älskar dig, Farhan",          # Swedish
+    "Kocham cię, Farhanie",            # Polish (vocative)
+    "ฉันรักเธอ, ฟาร์ฮาน",                # Thai
+    "Em yêu anh, Farhan",              # Vietnamese (female speaker)
+    "Aku cinta kamu, Farhan",          # Indonesian
+    "Я тебе кохаю, Фархане",           # Ukrainian (vocative)
 ]
 
 _fonts = {}
