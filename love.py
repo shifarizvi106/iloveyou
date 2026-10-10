@@ -4,7 +4,7 @@ import turtle as t
 import tkinter.font as tkf
 
 SC = 21
-OY = 20
+OY = 0
 DURATION = 10
 TICK = 16
 ANIM = 42
@@ -24,26 +24,26 @@ cv = s.getcanvas()
 rng = r.Random(11)
 
 PHRASES = [
-    "I love you, Farhan",             
-    "Seni seviyorum, Farhan",         
-    "Te amo, Farhan",                  
-    "Je t'aime, Farhan",              
-    "Ich liebe dich, Farhan",          
-    "Ti amo, Farhan",               
-    "Eu te amo, Farhan",               
-    "Я тебя люблю, Фархан",            
-    "사랑해, 파르한",                    
-    "愛してる、ファルハン",               
-    "我爱你，法尔汉",                    
-    "मैं तुमसे प्यार करती हूँ, फरहान",  
-    "Σ' αγαπώ, Φαρχάν",                
-    "Ik hou van jou, Farhan",          
-    "Jag älskar dig, Farhan",         
-    "Kocham cię, Farhanie",           
-    "ฉันรักเธอ, ฟาร์ฮาน",                
-    "Em yêu anh, Farhan",              
-    "Aku cinta kamu, Farhan",          
-    "Я тебе кохаю, Фархане",           
+    "I love you, Farhan",              # English
+    "Seni seviyorum, Farhan",          # Turkish
+    "Te amo, Farhan",                  # Spanish
+    "Je t'aime, Farhan",               # French
+    "Ich liebe dich, Farhan",          # German
+    "Ti amo, Farhan",                  # Italian
+    "Eu te amo, Farhan",               # Portuguese
+    "Я тебя люблю, Фархан",            # Russian
+    "사랑해, 파르한",                    # Korean
+    "愛してる、ファルハン",               # Japanese
+    "我爱你，法尔汉",                    # Chinese (Simplified)
+    "मैं तुमसे प्यार करती हूँ, फरहान",   # Hindi (female speaker)
+    "Σ' αγαπώ, Φαρχάν",                # Greek
+    "Ik hou van jou, Farhan",          # Dutch
+    "Jag älskar dig, Farhan",          # Swedish
+    "Kocham cię, Farhanie",            # Polish (vocative)
+    "ฉันรักเธอ, ฟาร์ฮาน",                # Thai
+    "Em yêu anh, Farhan",              # Vietnamese (female speaker)
+    "Aku cinta kamu, Farhan",          # Indonesian
+    "Я тебе кохаю, Фархане",           # Ukrainian (vocative)
 ]
 
 _fonts = {}
@@ -87,6 +87,7 @@ EDGES = list(zip(POLY, POLY[1:] + POLY[:1]))
 YMAX = max(p[1] for p in POLY)
 YMIN = min(p[1] for p in POLY)
 CY = (YMAX + YMIN) / 2
+XC = 0.0
 
 
 def spans(y):
@@ -180,7 +181,7 @@ def build():
 
 
 def math_dist(x, y):
-    return m.hypot(x / (16 * SC), (y - CY) / (14.5 * SC))
+    return m.hypot((x - XC) / (16 * SC), (y - CY) / (14.5 * SC))
 
 
 FLASH = (1.0, 0.78, 0.78)
@@ -197,13 +198,11 @@ def spawn(p):
     x, y = p["x"], -p["y"]
     size, text, c = p["size"], p["text"], p["color"]
     font = (FONT, size, "bold")
-    big = (FONT, size + 1, "bold")
 
-    shadow = cv.create_text(x + 2, y + 3, text=text, font=font, fill=BG)
-    halo = cv.create_text(x, y, text=text, font=big, fill=BG)
+    shadow = cv.create_text(x + 1, y + 2, text=text, font=font, fill=BG)
     main = cv.create_text(x, y - LIFT, text=text, font=font, fill=BG)
 
-    p.update(shadow=shadow, halo=halo, main=main,
+    p.update(shadow=shadow, main=main,
              f=0, dx=rng.uniform(-10, 10))
     main_ids.append((main, c))
     active.append(p)
@@ -220,8 +219,6 @@ def animate(p):
     py = y - hover
 
     cv.itemconfig(p["shadow"], fill=hx(mix(BGC, dim(c, 0.30), e)))
-    cv.itemconfig(p["halo"], fill=hx(mix(BGC, dim(c, 0.20), e * e)))
-    cv.coords(p["halo"], px, py)
 
     flash = 0.75 * math_sin(clamp((u - 0.55) / 0.45))
     col = mix(mix(BGC, c, e ** 1.5), FLASH, flash)
@@ -229,7 +226,6 @@ def animate(p):
     cv.coords(p["main"], px, py)
 
     if u >= 1:
-        cv.coords(p["halo"], x, y)
         cv.coords(p["main"], x, y)
         cv.itemconfig(p["main"], fill=hx(c))
         return False
